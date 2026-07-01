@@ -56,7 +56,6 @@ export default function Evaluation() {
               key={section.titulo}
               title={section.titulo}
               items={section.items}
-              percentage={percentage}
               setPercentage={setPercentage}
             />
 
