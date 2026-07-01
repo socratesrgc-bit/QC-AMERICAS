@@ -3,109 +3,139 @@ import type { EvaluationItem } from "../../types/Evaluation";
 interface EvaluationSectionProps {
   title: string;
   items: EvaluationItem[];
+  setPercentage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function EvaluationSection({
   title,
   items,
+  setPercentage,
 }: EvaluationSectionProps) {
-  return (
-    <div className="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden">
 
-      <div className="bg-blue-700 px-6 py-4">
+  const handleChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+
+    const value = e.target.value;
+
+    setPercentage((prev) => {
+
+      if (value === "SI CUMPLE") {
+
+        return Math.min(prev + 10, 100);
+
+      }
+
+      if (value === "NO CUMPLE") {
+
+        return Math.max(prev - 5, 0);
+
+      }
+
+      return prev;
+
+    });
+
+  };
+
+  return (
+    <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+
+      <div className="bg-red-700 px-6 py-4">
+
         <h2 className="text-lg font-bold text-white">
           {title}
         </h2>
+
       </div>
 
-      {items.length === 0 ? (
+      <table className="w-full">
 
-        <div className="p-8 text-center text-slate-400">
-          No hay criterios cargados para esta sección.
-        </div>
+        <thead className="bg-gray-100">
 
-      ) : (
+          <tr className="text-gray-700">
 
-        <table className="w-full">
+            <th className="text-center px-4 py-3 w-16">
+              N°
+            </th>
 
-          <thead className="bg-slate-900">
+            <th className="text-left px-4 py-3">
+              Criterio
+            </th>
 
-            <tr>
+            <th className="text-center px-4 py-3 w-56">
+              Resultado
+            </th>
 
-              <th className="text-left px-4 py-3 w-16">N°</th>
+            <th className="text-left px-4 py-3 w-80">
+              Observación
+            </th>
 
-              <th className="text-left px-4 py-3">
-                Criterio
-              </th>
+          </tr>
 
-              <th className="text-center px-4 py-3 w-24">
-                Sí
-              </th>
+        </thead>
 
-              <th className="text-center px-4 py-3 w-24">
-                No
-              </th>
+        <tbody>
 
-              <th className="text-left px-4 py-3 w-72">
-                Observación
-              </th>
+          {items.map((item) => (
+
+            <tr
+              key={item.id}
+              className="border-t border-gray-200 hover:bg-gray-50"
+            >
+
+              <td className="text-center py-4">
+                {item.id}
+              </td>
+
+              <td className="px-4">
+                {item.criterio}
+              </td>
+
+              <td className="px-4">
+
+                <select
+                  defaultValue=""
+                  onChange={handleChange}
+                  className="w-full rounded-lg border border-gray-300 bg-white p-2 focus:border-red-700 outline-none"
+                >
+
+                  <option value="">
+                    Seleccione...
+                  </option>
+
+                  <option value="SI CUMPLE">
+                    🟢 SI CUMPLE
+                  </option>
+
+                  <option value="NO CUMPLE">
+                    🔴 NO CUMPLE
+                  </option>
+
+                  <option value="NA">
+                    ⚪ N/A
+                  </option>
+
+                </select>
+
+              </td>
+
+              <td className="px-4 py-3">
+
+                <input
+                  placeholder="Observación..."
+                  className="w-full rounded-lg border border-gray-300 p-2 focus:border-red-700 outline-none"
+                />
+
+              </td>
 
             </tr>
 
-          </thead>
+          ))}
 
-          <tbody>
+        </tbody>
 
-            {items.map((item) => (
-
-              <tr
-                key={item.id}
-                className="border-t border-slate-700 hover:bg-slate-700 transition"
-              >
-
-                <td className="px-4 py-4">
-                  {item.id}
-                </td>
-
-                <td className="px-4">
-                  {item.criterio}
-                </td>
-
-                <td className="text-center">
-
-                  <input
-                    type="radio"
-                    name={`item-${item.id}`}
-                  />
-
-                </td>
-
-                <td className="text-center">
-
-                  <input
-                    type="radio"
-                    name={`item-${item.id}`}
-                  />
-
-                </td>
-
-                <td className="px-4 py-3">
-
-                  <input
-                    className="w-full bg-slate-900 border border-slate-700 rounded p-2"
-                  />
-
-                </td>
-
-              </tr>
-
-            ))}
-
-          </tbody>
-
-        </table>
-
-      )}
+      </table>
 
     </div>
   );

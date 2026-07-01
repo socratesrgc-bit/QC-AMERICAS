@@ -4,37 +4,74 @@ interface LoginProps {
 
 export default function Login({ onLogin }: LoginProps) {
   return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-      <div className="w-[420px] rounded-xl bg-slate-800 p-10 shadow-2xl">
-        <h1 className="text-5xl font-bold text-white text-center">
-          QC-AMÉRICAS
-        </h1>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
 
-        <p className="text-slate-400 text-center mt-2 mb-8">
-          Sistema de Gestión de Calidad
-        </p>
+      <div className="w-[460px] bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
 
-        <label className="text-white">Usuario</label>
+        {/* Barra superior */}
+        <div className="h-2 bg-red-700"></div>
 
-        <input
-          className="w-full mt-2 mb-6 rounded-lg p-3 bg-slate-700 text-white"
-          type="text"
-        />
+        <div className="p-10">
 
-        <label className="text-white">Contraseña</label>
+          <h1 className="text-5xl font-extrabold text-center">
 
-        <input
-          className="w-full mt-2 mb-8 rounded-lg p-3 bg-slate-700 text-white"
-          type="password"
-        />
+            <span className="text-gray-900">
+              Q.C-
+            </span>
 
-        <button
-          onClick={onLogin}
-          className="w-full bg-blue-600 hover:bg-blue-700 rounded-lg p-3 font-bold"
-        >
-          Iniciar Sesión
-        </button>
+            <span className="text-red-700">
+              AMERICAS
+            </span>
+
+          </h1>
+
+          <p className="text-center text-gray-500 mt-3 mb-10">
+            Sistema de Gestión de Calidad · FONAFE
+          </p>
+
+          {/* Usuario */}
+
+          <label className="block text-gray-700 font-semibold mb-2">
+            Usuario
+          </label>
+
+          <input
+            type="text"
+            placeholder="Ingrese su usuario"
+            className="w-full rounded-lg border border-gray-300 bg-white p-3 mb-6 focus:border-red-700 focus:ring-2 focus:ring-red-200 outline-none transition"
+          />
+
+          {/* Contraseña */}
+
+          <label className="block text-gray-700 font-semibold mb-2">
+            Contraseña
+          </label>
+
+          <input
+            type="password"
+            placeholder="Ingrese su contraseña"
+            className="w-full rounded-lg border border-gray-300 bg-white p-3 mb-8 focus:border-red-700 focus:ring-2 focus:ring-red-200 outline-none transition"
+          />
+
+          <button
+            onClick={onLogin}
+            className="w-full bg-red-700 hover:bg-red-800 text-white rounded-lg py-3 font-bold text-lg transition"
+          >
+            Iniciar Sesión
+          </button>
+
+          <div className="mt-8 pt-6 border-t border-gray-200">
+
+            <p className="text-center text-sm text-gray-500">
+              Acceso exclusivo para personal autorizado
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
   );
 }

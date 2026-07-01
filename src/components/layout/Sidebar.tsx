@@ -38,15 +38,15 @@ const menu = [
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 bg-slate-800 border-r border-slate-700 flex flex-col">
+    <aside className="w-64 bg-[#2B2B2B] border-r border-gray-300 flex flex-col shadow-lg">
 
-      <div className="p-6 border-b border-slate-700">
+      <div className="p-6 border-b border-gray-600">
 
-        <h1 className="text-2xl font-bold text-blue-400">
+        <h1 className="text-2xl font-extrabold text-red-600 tracking-wide">
           QC-AMÉRICAS
         </h1>
 
-        <p className="text-sm text-slate-400">
+        <p className="text-sm text-gray-300 mt-1">
           Gestión de Calidad
         </p>
 
@@ -61,10 +61,10 @@ export default function Sidebar() {
               key={item.text}
               to={item.path}
               className={({ isActive }) =>
-                `flex items-center gap-3 rounded-lg px-4 py-3 transition ${
+                `flex items-center gap-3 rounded-lg px-4 py-3 font-medium transition-all duration-200 ${
                   isActive
-                    ? "bg-blue-600 text-white"
-                    : "text-slate-300 hover:bg-slate-700 hover:text-white"
+                    ? "bg-red-700 text-white shadow-md"
+                    : "text-gray-200 hover:bg-red-600 hover:text-white"
                 }`
               }
             >
@@ -77,10 +77,10 @@ export default function Sidebar() {
 
       </nav>
 
-      <div className="border-t border-slate-700 p-4">
+      <div className="border-t border-gray-600 p-4">
 
-        <p className="text-xs text-slate-500">
-          QC-AMÉRICAS v1.0
+        <p className="text-xs text-gray-400">
+          FONAFE • QC-AMÉRICAS v1.0
         </p>
 
       </div>

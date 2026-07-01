@@ -20,34 +20,30 @@ const data = [
 
 export default function QualityChart() {
   return (
-    <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-lg">
+    <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
 
-      <div className="mb-6">
-        <h2 className="text-xl font-bold text-white">
-          Calidad - Últimos 7 días
-        </h2>
+      <h2 className="text-xl font-bold text-gray-800 mb-6">
+        Calidad - Últimos 7 días
+      </h2>
 
-        <p className="text-sm text-slate-400 mt-1">
-          Evolución diaria del porcentaje de calidad.
-        </p>
-      </div>
+      <div style={{ width: "100%", height: 320 }}>
 
-      <div className="h-72">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer>
+
           <LineChart data={data}>
+
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#334155"
+              stroke="#E5E7EB"
             />
 
             <XAxis
               dataKey="dia"
-              stroke="#94A3B8"
+              stroke="#6B7280"
             />
 
             <YAxis
-              stroke="#94A3B8"
-              domain={[90, 100]}
+              stroke="#6B7280"
             />
 
             <Tooltip />
@@ -55,13 +51,21 @@ export default function QualityChart() {
             <Line
               type="monotone"
               dataKey="calidad"
-              stroke="#3B82F6"
-              strokeWidth={3}
-              dot={{ r: 5 }}
-              activeDot={{ r: 7 }}
+              stroke="#C8102E"
+              strokeWidth={4}
+              dot={{
+                r: 5,
+                fill: "#C8102E",
+              }}
+              activeDot={{
+                r: 8,
+              }}
             />
+
           </LineChart>
+
         </ResponsiveContainer>
+
       </div>
 
     </div>

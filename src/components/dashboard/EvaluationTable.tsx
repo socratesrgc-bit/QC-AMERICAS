@@ -1,107 +1,105 @@
 const data = [
   {
-    fecha: "25/06/2026",
+    fecha: "26/06/2026",
+    ede: "SEAL",
     asesor: "Juan Pérez",
     supervisor: "Sócrates",
     calidad: "98.50%",
     estado: "Excelente",
   },
   {
-    fecha: "25/06/2026",
+    fecha: "26/06/2026",
+    ede: "ELOR",
     asesor: "Ana López",
     supervisor: "Sócrates",
-    calidad: "95.00%",
+    calidad: "96.20%",
     estado: "Bueno",
   },
   {
-    fecha: "24/06/2026",
+    fecha: "25/06/2026",
+    ede: "ELPU",
     asesor: "Carlos Ruiz",
     supervisor: "Sócrates",
-    calidad: "89.00%",
+    calidad: "91.80%",
     estado: "Regular",
+  },
+  {
+    fecha: "25/06/2026",
+    ede: "ELUC",
+    asesor: "María Torres",
+    supervisor: "Sócrates",
+    calidad: "100%",
+    estado: "Excelente",
   },
 ];
 
 export default function EvaluationTable() {
   return (
-    <div className="bg-slate-800 border border-slate-700 rounded-xl shadow-lg">
+    <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
 
-      <div className="p-6 border-b border-slate-700">
+      <div className="bg-[#C8102E] px-6 py-4">
+
         <h2 className="text-xl font-bold text-white">
           Últimas Evaluaciones
         </h2>
 
-        <p className="text-sm text-slate-400 mt-1">
-          Últimos monitoreos registrados en el sistema.
-        </p>
       </div>
 
-      <div className="overflow-x-auto">
+      <table className="w-full">
 
-        <table className="w-full">
+        <thead className="bg-gray-100">
 
-          <thead className="bg-slate-900">
+          <tr className="text-gray-700">
 
-            <tr>
+            <th className="text-left px-6 py-4">Fecha</th>
+            <th className="text-left px-6 py-4">EDE</th>
+            <th className="text-left px-6 py-4">Asesor</th>
+            <th className="text-left px-6 py-4">Supervisor</th>
+            <th className="text-center px-6 py-4">Calidad</th>
+            <th className="text-center px-6 py-4">Estado</th>
 
-              <th className="text-left px-6 py-4 text-slate-400">
-                Fecha
-              </th>
+          </tr>
 
-              <th className="text-left px-6 py-4 text-slate-400">
-                Asesor
-              </th>
+        </thead>
 
-              <th className="text-left px-6 py-4 text-slate-400">
-                Supervisor
-              </th>
+        <tbody>
 
-              <th className="text-left px-6 py-4 text-slate-400">
-                Calidad
-              </th>
+          {data.map((row, index) => (
 
-              <th className="text-left px-6 py-4 text-slate-400">
-                Estado
-              </th>
+            <tr
+              key={index}
+              className="border-t border-gray-200 hover:bg-gray-50 transition"
+            >
+
+              <td className="px-6 py-4">{row.fecha}</td>
+
+              <td className="px-6 py-4 font-semibold text-red-700">
+                {row.ede}
+              </td>
+
+              <td className="px-6 py-4">{row.asesor}</td>
+
+              <td className="px-6 py-4">{row.supervisor}</td>
+
+              <td className="text-center px-6 py-4 font-bold text-green-600">
+                {row.calidad}
+              </td>
+
+              <td className="text-center px-6 py-4">
+
+                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  {row.estado}
+                </span>
+
+              </td>
 
             </tr>
 
-          </thead>
+          ))}
 
-          <tbody>
+        </tbody>
 
-            {data.map((item, index) => (
-
-              <tr
-                key={index}
-                className="border-t border-slate-700 hover:bg-slate-700 transition"
-              >
-
-                <td className="px-6 py-4">{item.fecha}</td>
-
-                <td className="px-6 py-4">{item.asesor}</td>
-
-                <td className="px-6 py-4">{item.supervisor}</td>
-
-                <td className="px-6 py-4 font-bold text-green-400">
-                  {item.calidad}
-                </td>
-
-                <td className="px-6 py-4">
-                  <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
-                    {item.estado}
-                  </span>
-                </td>
-
-              </tr>
-
-            ))}
-
-          </tbody>
-
-        </table>
-
-      </div>
+      </table>
 
     </div>
   );

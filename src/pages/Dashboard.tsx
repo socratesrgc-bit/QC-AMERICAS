@@ -9,14 +9,16 @@ export default function Dashboard() {
       <div className="space-y-8">
 
         {/* Encabezado */}
-        <div>
-          <h1 className="text-4xl font-bold text-white">
+        <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+
+          <h1 className="text-4xl font-bold text-gray-800">
             Dashboard
           </h1>
 
-          <p className="text-slate-400 mt-2">
-            Bienvenido al Sistema QC-AMÉRICAS
+          <p className="text-gray-500 mt-2">
+            Campaña FONAFE · Sistema de Gestión de Calidad
           </p>
+
         </div>
 
         {/* KPIs */}
@@ -25,25 +27,25 @@ export default function Dashboard() {
           <KPICard
             titulo="Calidad"
             valor="98.50%"
-            color="#22C55E"
+            color="#16A34A"
           />
 
           <KPICard
             titulo="Evaluaciones"
             valor="320"
-            color="#3B82F6"
+            color="#C8102E"
           />
 
           <KPICard
             titulo="Asesores"
             valor="42"
-            color="#A855F7"
+            color="#374151"
           />
 
           <KPICard
             titulo="Errores Críticos"
             valor="5"
-            color="#EF4444"
+            color="#DC2626"
           />
 
         </div>

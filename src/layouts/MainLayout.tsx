@@ -10,7 +10,7 @@ export default function MainLayout({
   children,
 }: MainLayoutProps) {
   return (
-    <div className="min-h-screen bg-slate-900 flex">
+    <div className="min-h-screen bg-gray-100 flex">
 
       {/* Sidebar */}
       <Sidebar />
@@ -22,8 +22,12 @@ export default function MainLayout({
         <Header />
 
         {/* Página */}
-        <main className="flex-1 overflow-y-auto p-8">
-          {children}
+        <main className="flex-1 p-8 bg-gray-100">
+
+          <div className="max-w-7xl mx-auto">
+            {children}
+          </div>
+
         </main>
 
       </div>

@@ -10,92 +10,141 @@ export default function GeneralData() {
   });
 
   return (
-    <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+    <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
 
-      <h2 className="text-xl font-bold text-white mb-6">
-        Datos Generales
-      </h2>
+      {/* Encabezado */}
 
-      <div className="grid grid-cols-2 gap-5">
+      <div className="bg-red-700 px-6 py-4">
 
-        <div>
-          <label className="block text-sm text-slate-300 mb-2">
-            EDE
-          </label>
+        <h2 className="text-xl font-bold text-white">
+          DATOS GENERALES
+        </h2>
 
-          <select className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3">
+      </div>
 
-            <option>ENOSA</option>
-            <option>ENSA</option>
-            <option>HIDRANDINA</option>
-            <option>ELECTROCENTRO</option>
-            <option>SEAL</option>
-            <option>ELOR</option>
-            <option>ELSE</option>
-            <option>ELECTROSUR</option>
-            <option>ELECTRO UCAYALI</option>
-            <option>ADINELSA</option>
+      {/* Contenido */}
 
-          </select>
-        </div>
+      <div className="p-8">
 
-        <div>
-          <label className="block text-sm text-slate-300 mb-2">
-            Campaña
-          </label>
+        <div className="grid grid-cols-2 gap-6">
 
-          <input
-            value="FONAFE"
-            readOnly
-            className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3"
-          />
-        </div>
+          {/* EDE */}
 
-        <div>
-          <label className="block text-sm text-slate-300 mb-2">
-            Supervisor
-          </label>
+          <div>
 
-          <input
-            className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3"
-            placeholder="Ingrese el supervisor"
-          />
-        </div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              EDE
+            </label>
 
-        <div>
-          <label className="block text-sm text-slate-300 mb-2">
-            Asesor
-          </label>
+            <select className="w-full rounded-lg border border-gray-300 bg-white p-3 focus:border-red-700 focus:ring-2 focus:ring-red-200 outline-none">
 
-          <input
-            className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3"
-            placeholder="Ingrese el asesor"
-          />
-        </div>
+              <option>ADINELSA</option>
+              <option>ELOR</option>
+              <option>ELPU</option>
+              <option>ELUC</option>
+              <option>SEAL</option>
+              <option>ELSU</option>
+              <option>ELSE</option>
 
-        <div>
-          <label className="block text-sm text-slate-300 mb-2">
-            Fecha
-          </label>
+            </select>
 
-          <input
-            type="date"
-            value={fecha}
-            readOnly
-            className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3"
-          />
-        </div>
+          </div>
 
-        <div>
-          <label className="block text-sm text-slate-300 mb-2">
-            Hora
-          </label>
+          {/* Campaña */}
 
-          <input
-            value={hora}
-            readOnly
-            className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3"
-          />
+          <div>
+
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Campaña
+            </label>
+
+            <input
+              value="FONAFE"
+              readOnly
+              className="w-full rounded-lg border border-gray-300 bg-gray-100 p-3"
+            />
+
+          </div>
+
+          {/* Supervisor */}
+
+          <div>
+
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Supervisor
+            </label>
+
+            <select className="w-full rounded-lg border border-gray-300 bg-white p-3 focus:border-red-700 focus:ring-2 focus:ring-red-200 outline-none">
+
+              <option value="">Seleccione un supervisor</option>
+
+              <option>Johana Olivera</option>
+              <option>Diego Paz</option>
+              <option>Edgar Morán</option>
+              <option>Angie Arata</option>
+              <option>Miguel Angel</option>
+              <option>Hugo Vélez</option>
+              <option>Patrick de la Cruz</option>
+              <option>Juan Ulloa</option>
+              <option>Carlos Jara</option>
+              <option>Abel Benavides</option>
+              <option>Diana Avelino</option>
+              <option>Sócrates Romero</option>
+              <option>Ruth Canchari</option>
+              <option>Adriana Cordova</option>
+
+            </select>
+
+          </div>
+
+          {/* Asesor */}
+
+          <div>
+
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Asesor
+            </label>
+
+            <input
+              placeholder="Ingrese el asesor"
+              className="w-full rounded-lg border border-gray-300 p-3 focus:border-red-700 focus:ring-2 focus:ring-red-200 outline-none"
+            />
+
+          </div>
+
+          {/* Fecha */}
+
+          <div>
+
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Fecha
+            </label>
+
+            <input
+              type="date"
+              value={fecha}
+              readOnly
+              className="w-full rounded-lg border border-gray-300 bg-gray-100 p-3"
+            />
+
+          </div>
+
+          {/* Hora */}
+
+          <div>
+
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Hora
+            </label>
+
+            <input
+              value={hora}
+              readOnly
+              className="w-full rounded-lg border border-gray-300 bg-gray-100 p-3"
+            />
+
+          </div>
+
         </div>
 
       </div>
